@@ -5,7 +5,7 @@
     Black White
     http://www.templatemo.com/preview/templatemo_419_black_white
     -->
-	<title>ShilpKrafts</title>
+	<title>Contact - Black White HTML5 Template</title>
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 	<meta charset="UTF-8">
@@ -14,9 +14,30 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="css/templatemo_style.css" rel="stylesheet" type="text/css">	
-	   <script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery-1.11.1.min.js"></script>
    <script src="config.json"></script>
    <script src="js/include.js"></script>
+   <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("user_u0rNI8QTnDyUZIfwYV9AB");
+   })();
+</script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // generate the contact number value
+                //this.contact_number.value = Math.random() * 100000 | 0;
+				this.success_message.value="Your message has been successfully sent to ShilpKrafts. Please expect a response soon.";
+                emailjs.sendForm('default_service', 'template_Gz8q85vs', this);
+				
+				
+            });
+        }
+    </script>
 </head>
 <body>
    <div class="templatemo-logo visible-xs-block">
@@ -46,19 +67,22 @@
                     </div> -->
 
                     <div class="col-sm-12 col-md-12">
-                        <form action="#" method="post">
+                        <form id="contact-form">
 
                             <div class="form-group">
-                                <input type="text" id="contact_name" class="form-control" placeholder="Name" />
+                                <input type="text" id="contact_name" name="from_name" class="form-control" placeholder="Name" />
                             </div>
                             <div class="form-group">
-                                <input type="text" id="contact_email" class="form-control" placeholder="Email Address" />
+                                <input type="text" id="contact_email" name="email" class="form-control" placeholder="Email Address" />
                             </div>
                             <div class="form-group">
-                                <input type="text" id="contact_subject" class="form-control" placeholder="Subject" />
+                                <input type="text" id="contact_phone" name="phone" class="form-control" placeholder="Phone" />
                             </div>
                             <div class="form-group">
-                                <textarea id="contact_message" class="form-control" rows="9" placeholder="Write a message"></textarea>
+                                <textarea id="contact_message" name="message_html" class="form-control" rows="9" placeholder="Write a message"></textarea>
+                            </div>
+							<div class="form-group">
+                                <input type="text" class="form-control" style="border: none transparent;outline:none;border-color:transparent;background-color:#fff;box-shadow:none;" readonly="true" id="success_message"/>
                             </div>
                             <button type="submit" class="btn btn-warning">Send</button>
 
@@ -71,45 +95,5 @@
 			</div>	
 		</div> <!-- right section -->
 	</div>
-	<script src="js/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript">
-		var map = '';
-		var center;
-
-		function initialize() {
-		    var mapOptions = {
-		      zoom: 16,
-		      center: new google.maps.LatLng(16.8496189,96.1288854)
-		  	};
-		  
-		  	map = new google.maps.Map(document.getElementById('map-canvas'),  mapOptions);
-
-		  	google.maps.event.addDomListener(map, 'idle', function() {
-			  calculateCenter();
-			});
-			
-			google.maps.event.addDomListener(window, 'resize', function() {
-			  map.setCenter(center);
-			});
-		}
-
-		function calculateCenter() {
-		  center = map.getCenter();
-		}
-
-		function loadGoogleMap(){
-		    // load google map
-		    var script = document.createElement('script');
-		    script.type = 'text/javascript';
-		    script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' +
-		    'callback=initialize';
-		    document.body.appendChild(script);
-		}
-
-		$(document).ready( function() {
-			//loadGoogleMap();
-		});
-
-	</script>	
 </body>
 </html>
