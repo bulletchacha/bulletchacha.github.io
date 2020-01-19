@@ -1,0 +1,14 @@
+products = 
+[
+  {"name": "Fish"},
+  {"name": "Buffalo"},
+  {"name": "Donkey"},
+  {"name": "BabyBull"},
+  {"name": "Bench"},
+  {"name": "Dog"},
+  {"name": "Elephant"},
+  {"name": "Eleplate"},
+  {"name": "Giraffe"},
+  {"name": "Holder"},
+  {"name": "Horse"}
+]
