@@ -44,11 +44,12 @@ function(){
     jQuery.each(includes, function(){
       var file = $(this).data('include') + '.html';
       $(this).load(file);
-	  console.log('url:'+window.location.pathname);
-	  $('#about').addClass('active');
+	  //console.log('url:'+window.location.pathname);
+	  //$('#about').addClass('active');
     });
 	
 
   }
 
 );
+	
